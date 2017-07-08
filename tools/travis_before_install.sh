@@ -31,7 +31,7 @@ export WHEELHOUSE
 export DISPLAY=:99.0
 export PYTHONWARNINGS="d,all:::skimage"
 export TEST_ARGS="-v --doctest-modules"
-WHEELBINARIES="matplotlib scipy pillow cython"
+WHEELBINARIES="matplotlib scipy pillow"
 
 retry () {
     # https://gist.github.com/fungusakafungus/1026804
@@ -66,6 +66,7 @@ python -m pip install --upgrade pip
 pip install --retries 3 -q wheel flake8 codecov pytest pytest-cov
 # install numpy from PyPI instead of our wheelhouse
 pip install --retries 3 -q wheel numpy
+pip install --retries 3 https://github.com/cython/cython/archive/3ab487f105e4cc9dc7b7e3844cd80078bc534cc4.zip --install-option=--no-cython-compile
 
 # install wheels
 for requirement in $WHEELBINARIES; do
