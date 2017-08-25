@@ -1,5 +1,3 @@
-from io import BytesIO
-
 import numpy as np
 import six
 
@@ -7,7 +5,7 @@ from ..io.manage_plugins import call_plugin
 from ..color import rgb2grey
 from .util import file_or_url_context
 from ..exposure import is_low_contrast
-from .._shared.utils import all_warnings, warn
+from .._shared.utils import warn
 
 
 __all__ = ['imread', 'imsave', 'imshow', 'show',
@@ -33,6 +31,8 @@ def imread(fname, as_grey=False, plugin=None, flatten=None,
 
     Other Parameters
     ----------------
+    plugin_args : keywords
+        Passed to the given plugin.
     flatten : bool
         Backward compatible keyword, superseded by `as_grey`.
 
@@ -42,11 +42,6 @@ def imread(fname, as_grey=False, plugin=None, flatten=None,
         The different color bands/channels are stored in the
         third dimension, such that a grey-image is MxN, an
         RGB-image MxNx3 and an RGBA-image MxNx4.
-
-    Other parameters
-    ----------------
-    plugin_args : keywords
-        Passed to the given plugin.
 
     """
     # Backward compatibility
