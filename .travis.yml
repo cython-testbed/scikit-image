@@ -35,6 +35,9 @@ notifications:
     on_start: false     # default: false
 
 matrix:
+
+  fast_finish: true
+
   include:
     - os: linux
       python: 2.7
@@ -57,6 +60,9 @@ matrix:
       language: objective-c
       env: TRAVIS_PYTHON_VERSION=3.5
 
+  allow_failures:
+    - env: PIP_FLAGS="--pre"
+
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
         source tools/travis/osx_install.sh;
@@ -68,7 +74,6 @@ before_install:
     - export PATH=/usr/lib/ccache:${PATH}
     - source tools/travis/before_install.sh
     - which python; python --version
-    - tools/check_bento_build.py
     - tools/build_versions.py
     - tools/check_sdist.py
 
