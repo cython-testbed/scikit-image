@@ -60,7 +60,7 @@ python -m pip install --upgrade pip
 pip install --retries 3 -q wheel flake8 codecov pytest pytest-cov
 # install numpy from PyPI instead of our wheelhouse
 pip install --retries 3 -q wheel numpy
-pip install --retries 3 https://github.com/cython/cython/archive/53327193c9696f3d26320c6cc0c51518f5e6702e.zip --install-option=--no-cython-compile
+pip install --retries 3 https://github.com/cython/cython/archive/5c9cbb6184d84204cc583e1fa52ec2b9bb3ab60a.zip --install-option=--no-cython-compile
 
 # install wheels
 for requirement in $WHEELBINARIES; do
