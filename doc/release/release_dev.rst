@@ -25,6 +25,7 @@ New Features
 - cycle-spinning function for approximating shift-invariance by averaging
   results from a series of spatial shifts (#2647)
 - Haar-like feature (#2848)
+- subset of LFW database (#2905)
 
 
 Improvements
@@ -43,7 +44,8 @@ API Changes
 -----------
 - ``skimage.util.montage.montage2d`` is now available as
   ``skimage.util.montage2d``.
-
+- ``skimage.morphology.binary_erosion`` now uses ``True`` as border
+  value, and is now consistent with ``skimage.morphology.erosion``.
 
 Deprecations
 ------------
@@ -61,6 +63,8 @@ Deprecations
   Specifically, the "orientation" region property will measure the
   anticlockwise angle from a *vertical* line, i.e. from the vector (1, 0) in
   row-column coordinates.
+- ``skimage.morphology.remove_small_holes`` ``min_size`` argument is deprecated
+  and will be removed in 0.16. Use ``area_threshold`` instead.
 
 
 Contributors to this release
