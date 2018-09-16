@@ -65,7 +65,7 @@ done
 WHEELS="$WHEELS $(grep -i cython requirements/build.txt)"
 pip install --retries 3 -q $PIP_FLAGS $WHEELHOUSE $WHEELS
 
-pip install --retries 3 https://github.com/cython/cython/archive/a47d63eba1b53c3994dc63990e04e393ca20c152.zip --install-option=--no-cython-compile
+pip install --retries 3 https://github.com/cython/cython/archive/0dcb5d1930e573caa8494fe838c4c2cd4e2041f2.zip --install-option=--no-cython-compile
 
 # Install build time requirements
 pip install --retries 3 -q $PIP_FLAGS -r requirements/build.txt
