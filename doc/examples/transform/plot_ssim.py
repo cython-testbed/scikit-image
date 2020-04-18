@@ -25,7 +25,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from skimage import data, img_as_float
-from skimage.measure import compare_ssim as ssim
+from skimage.metrics import structural_similarity as ssim
 
 
 img = img_as_float(data.camera())
@@ -36,6 +36,7 @@ noise[np.random.random(size=noise.shape) > 0.5] *= -1
 
 def mse(x, y):
     return np.linalg.norm(x - y)
+
 
 img_noise = img + noise
 img_const = img + abs(noise)
